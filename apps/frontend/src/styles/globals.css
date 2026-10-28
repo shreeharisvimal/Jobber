@@ -1,0 +1,450 @@
+@import "tailwindcss";
+@import "./animations.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   DESIGN TOKENS — Jobber Design System
+   ============================================================ */
+
+@theme {
+  /* === NEUTRAL PALETTE === */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  /* === BRAND PALETTE === */
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
+  --color-brand-950: #172554;
+
+  /* === SUCCESS === */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+
+  /* === WARNING === */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+
+  /* === DANGER === */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
+  --color-danger-200: #fecaca;
+  --color-danger-300: #fca5a5;
+  --color-danger-400: #f87171;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+  --color-danger-800: #991b1b;
+  --color-danger-900: #7f1d1d;
+
+  /* === INFO === */
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-200: #bfdbfe;
+  --color-info-300: #93c5fd;
+  --color-info-400: #60a5fa;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+  --color-info-800: #1e40af;
+  --color-info-900: #1e3a8a;
+
+  /* === SEMANTIC SURFACES === */
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-surface-overlay: #ffffff;
+  --color-surface-sunken: #f8fafc;
+  --color-surface-muted: #f1f5f9;
+
+  /* === SEMANTIC FOREGROUND === */
+  --color-fg: #0a0a0a;
+  --color-fg-secondary: #64748b;
+  --color-fg-muted: #94a3b8;
+  --color-fg-inverse: #ffffff;
+
+  /* === SEMANTIC BORDERS === */
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-border-muted: #f1f5f9;
+
+  /* === SEMANTIC INTERACTIVE === */
+  --color-primary: #0f172a;
+  --color-primary-foreground: #f8fafc;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-accent: #f1f5f9;
+  --color-accent-foreground: #0f172a;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #f8fafc;
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0a0a0a;
+  --color-input: #e2e8f0;
+  --color-ring: #3b82f6;
+
+  /* === TYPOGRAPHY === */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* === FONT SIZES === */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  /* === LINE HEIGHTS === */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* === LETTER SPACING === */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+
+  /* === BORDER RADIUS === */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius: 6px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  /* === SHADOWS === */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-none: 0 0 0 0 transparent;
+
+  /* === SPACING === */
+  --spacing-0: 0px;
+  --spacing-px: 1px;
+  --spacing-0\.5: 2px;
+  --spacing-1: 4px;
+  --spacing-1\.5: 6px;
+  --spacing-2: 8px;
+  --spacing-2\.5: 10px;
+  --spacing-3: 12px;
+  --spacing-3\.5: 14px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-9: 36px;
+  --spacing-10: 40px;
+  --spacing-11: 44px;
+  --spacing-12: 48px;
+  --spacing-14: 56px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+}
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES (non-Tailwind tokens)
+   ============================================================ */
+
+:root {
+  /* === Z-INDEX SCALE === */
+  --z-base: 0;
+  --z-dropdown: 50;
+  --z-sticky: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-popover: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+  --z-max: 9999;
+
+  /* === ANIMATION DURATIONS === */
+  --duration-fast: 100ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+
+  /* === TRANSITION EASINGS === */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* === OPACITY === */
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.8;
+  --opacity-overlay: 0.5;
+  --opacity-muted: 0.7;
+  --opacity-brand: 0.1;
+
+  /* === LAYOUT DIMENSIONS === */
+  --width-sidebar: 256px;
+  --width-sidebar-collapsed: 64px;
+  --width-topnav: 64px;
+  --width-content: 1200px;
+  --width-content-narrow: 768px;
+  --height-topnav: 64px;
+  --height-button-sm: 32px;
+  --height-button-md: 36px;
+  --height-button-lg: 40px;
+  --height-button-xl: 44px;
+  --height-input: 36px;
+  --height-badge: 20px;
+
+  /* === FOCUS RING === */
+  --focus-ring-color: var(--color-ring);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-offset-color: var(--color-background);
+}
+
+/* ============================================================
+   DARK THEME
+   ============================================================ */
+
+.dark {
+  --color-neutral-50: #0a0a0a;
+  --color-neutral-100: #171717;
+  --color-neutral-200: #262626;
+  --color-neutral-300: #404040;
+  --color-neutral-400: #525252;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #a3a3a3;
+  --color-neutral-700: #d4d4d4;
+  --color-neutral-800: #e5e5e5;
+  --color-neutral-900: #f5f5f5;
+  --color-neutral-950: #fafafa;
+
+  --color-brand-50: #172554;
+  --color-brand-100: #1e3a8a;
+  --color-brand-200: #1e40af;
+  --color-brand-300: #1d4ed8;
+  --color-brand-400: #2563eb;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #60a5fa;
+  --color-brand-700: #93c5fd;
+  --color-brand-800: #bfdbfe;
+  --color-brand-900: #dbeafe;
+  --color-brand-950: #eff6ff;
+
+  --color-success-50: #14532d;
+  --color-success-100: #166534;
+  --color-success-200: #15803d;
+  --color-success-300: #16a34a;
+  --color-success-400: #22c55e;
+  --color-success-500: #4ade80;
+  --color-success-600: #86efac;
+  --color-success-700: #bbf7d0;
+  --color-success-800: #dcfce7;
+  --color-success-900: #f0fdf4;
+
+  --color-warning-50: #78350f;
+  --color-warning-100: #92400e;
+  --color-warning-200: #b45309;
+  --color-warning-300: #d97706;
+  --color-warning-400: #f59e0b;
+  --color-warning-500: #fbbf24;
+  --color-warning-600: #fcd34d;
+  --color-warning-700: #fde68a;
+  --color-warning-800: #fef3c7;
+  --color-warning-900: #fffbeb;
+
+  --color-danger-50: #7f1d1d;
+  --color-danger-100: #991b1b;
+  --color-danger-200: #b91c1c;
+  --color-danger-300: #dc2626;
+  --color-danger-400: #ef4444;
+  --color-danger-500: #f87171;
+  --color-danger-600: #fca5a5;
+  --color-danger-700: #fecaca;
+  --color-danger-800: #fee2e2;
+  --color-danger-900: #fef2f2;
+
+  --color-info-50: #172554;
+  --color-info-100: #1e3a8a;
+  --color-info-200: #1e40af;
+  --color-info-300: #1d4ed8;
+  --color-info-400: #2563eb;
+  --color-info-500: #3b82f6;
+  --color-info-600: #60a5fa;
+  --color-info-700: #93c5fd;
+  --color-info-800: #bfdbfe;
+  --color-info-900: #dbeafe;
+
+  --color-surface: #111111;
+  --color-surface-raised: #1a1a1a;
+  --color-surface-overlay: #1a1a1a;
+  --color-surface-sunken: #0a0a0a;
+  --color-surface-muted: #1a1a1a;
+
+  --color-fg: #fafafa;
+  --color-fg-secondary: #a1a1aa;
+  --color-fg-muted: #71717a;
+  --color-fg-inverse: #0a0a0a;
+
+  --color-border: #27272a;
+  --color-border-strong: #3f3f46;
+  --color-border-muted: #27272a;
+
+  --color-primary: #f8fafc;
+  --color-primary-foreground: #0f172a;
+  --color-secondary: #1a1a1a;
+  --color-secondary-foreground: #f8fafc;
+  --color-muted: #1a1a1a;
+  --color-muted-foreground: #a1a1aa;
+  --color-accent: #1a1a1a;
+  --color-accent-foreground: #f8fafc;
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #fafafa;
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
+  --color-card: #111111;
+  --color-card-foreground: #fafafa;
+  --color-input: #27272a;
+  --color-ring: #3b82f6;
+
+  --focus-ring-offset-color: var(--color-background);
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--leading-normal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   FOCUS UTILITIES
+   ============================================================ */
+
+.focus-ring {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--focus-ring-width) var(--focus-ring-offset-color),
+    0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-offset)) var(--focus-ring-color);
+}
+
+.focus-ring-inset {
+  outline: none;
+  box-shadow: inset 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+}
+
+/* ============================================================
+   SCROLLBAR STYLES
+   ============================================================ */
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--color-border-strong);
+  border-radius: var(--radius-full);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-neutral-400);
+}
+
+/* ============================================================
+   SELECTION STYLES
+   ============================================================ */
+
+::selection {
+  background-color: var(--color-brand-200);
+  color: var(--color-brand-900);
+}
+
+.dark ::selection {
+  background-color: var(--color-brand-800);
+  color: var(--color-brand-100);
+}

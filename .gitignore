@@ -1,0 +1,53 @@
+# Ignore backend, admin, and docs folders
+apps/admin/
+apps/backend/
+apps/docs/
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+postgres_data/
+redis_data/
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml
+
+# Alembic
+alembic/versions/*.pyc
+
+# Logs
+*.log
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup

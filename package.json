@@ -1,0 +1,17 @@
+{
+  "name": "jobber",
+  "private": true,
+  "workspaces": [
+    "apps/frontend",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/frontend",
+    "build": "npm run build --workspace=apps/frontend",
+    "lint": "npm run lint --workspace=apps/frontend",
+    "format": "prettier --write \"**/*.{ts,tsx,json,css,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.4.0"
+  }
+}

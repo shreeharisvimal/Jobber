@@ -1,0 +1,9 @@
+export { ResumeDashboardPage } from "./ResumeDashboardPage";
+export { ResumeEditorPage } from "./ResumeEditorPage";
+export { ResumeSectionsPage } from "./ResumeSectionsPage";
+export { ResumeVersionsPage } from "./ResumeVersionsPage";
+export { ResumeTemplatesPage } from "./ResumeTemplatesPage";
+export { ResumeSettingsPage } from "./ResumeSettingsPage";
+export { ResumeAnalyticsPage } from "./ResumeAnalyticsPage";
+export { ResumeHistoryPage } from "./ResumeHistoryPage";
+export { ResumeCollectionsPage } from "./ResumeCollectionsPage";
